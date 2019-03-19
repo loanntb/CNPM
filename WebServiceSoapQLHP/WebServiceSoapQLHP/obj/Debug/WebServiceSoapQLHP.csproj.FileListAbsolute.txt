@@ -1,0 +1,12 @@
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.dll.config
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.dll
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.pdb
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.csprojResolveAssemblyReference.cache
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.dll
+c:\users\loan nguyen\documents\visual studio 2015\Projects\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.pdb
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.dll.config
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.dll
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\bin\WebServiceSoapQLHP.pdb
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.csprojResolveAssemblyReference.cache
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.dll
+E:\TTCN\WebServiceSoapQLHP\WebServiceSoapQLHP\obj\Debug\WebServiceSoapQLHP.pdb

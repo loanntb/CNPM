@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DanhsachSV">
+        <s:complexType />
+      </s:element>
+      <s:element name="DanhsachSVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DanhsachSVResult" type="tns:ArrayOfSinh_vien" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSinh_vien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sinh_vien" nillable="true" type="tns:Sinh_vien" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Sinh_vien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_SV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_Lop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ho_Ten" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ngay_Sinh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Khoa_Hoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phieu_Nops" type="tns:ArrayOfPhieu_Nop" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lop" type="tns:Lop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPhieu_Nop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phieu_Nop" nillable="true" type="tns:Phieu_Nop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Phieu_Nop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="So_Phieu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_SV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ngay_Nap" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="So_Tien" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sinh_vien" type="tns:Sinh_vien" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Lop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_Lop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_Nganh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sinh_viens" type="tns:ArrayOfSinh_vien" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nganh" type="tns:Nganh" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Nganh">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ma_Nganh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ten_Nganh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lops" type="tns:ArrayOfLop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Lop" nillable="true" type="tns:Lop" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DanhsachSVSoapIn">
+    <wsdl:part name="parameters" element="tns:DanhsachSV" />
+  </wsdl:message>
+  <wsdl:message name="DanhsachSVSoapOut">
+    <wsdl:part name="parameters" element="tns:DanhsachSVResponse" />
+  </wsdl:message>
+  <wsdl:portType name="QLHPSoap">
+    <wsdl:operation name="DanhsachSV">
+      <wsdl:input message="tns:DanhsachSVSoapIn" />
+      <wsdl:output message="tns:DanhsachSVSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QLHPSoap" type="tns:QLHPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DanhsachSV">
+      <soap:operation soapAction="http://tempuri.org/DanhsachSV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QLHPSoap12" type="tns:QLHPSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DanhsachSV">
+      <soap12:operation soapAction="http://tempuri.org/DanhsachSV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QLHP">
+    <wsdl:port name="QLHPSoap" binding="tns:QLHPSoap">
+      <soap:address location="http://localhost:61393/QLHP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QLHPSoap12" binding="tns:QLHPSoap12">
+      <soap12:address location="http://localhost:61393/QLHP.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
