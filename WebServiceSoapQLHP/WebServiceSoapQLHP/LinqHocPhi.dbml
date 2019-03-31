@@ -3,6 +3,7 @@
   <Table Name="dbo.Lop" Member="Lops">
     <Type Name="Lop">
       <Column Name="Ma_Lop" Type="System.String" DbType="Char(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten_Lop" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
       <Column Name="Ma_Nganh" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
       <Association Name="Lop_Sinh_vien" Member="Sinh_viens" ThisKey="Ma_Lop" OtherKey="Ma_Lop" Type="Sinh_vien" />
       <Association Name="Nganh_Lop" Member="Nganh" ThisKey="Ma_Nganh" OtherKey="Ma_Nganh" Type="Nganh" IsForeignKey="true" />
@@ -11,15 +12,15 @@
   <Table Name="dbo.Nganh" Member="Nganhs">
     <Type Name="Nganh">
       <Column Name="Ma_Nganh" Type="System.String" DbType="Char(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Ten_Nganh" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_Nganh" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
       <Association Name="Nganh_Lop" Member="Lops" ThisKey="Ma_Nganh" OtherKey="Ma_Nganh" Type="Lop" />
     </Type>
   </Table>
   <Table Name="dbo.[Phieu Nop]" Member="Phieu_Nops">
     <Type Name="Phieu_Nop">
-      <Column Name="So_Phieu" Type="System.String" DbType="Char(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ma_So_Phieu" Type="System.String" DbType="Char(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ma_SV" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Ngay_Nap" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Nap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="So_Tien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Association Name="Sinh_vien_Phieu_Nop" Member="Sinh_vien" ThisKey="Ma_SV" OtherKey="Ma_SV" Type="Sinh_vien" IsForeignKey="true" />
     </Type>
@@ -28,11 +29,58 @@
     <Type Name="Sinh_vien">
       <Column Name="Ma_SV" Type="System.String" DbType="Char(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ma_Lop" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Ho_Ten" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
-      <Column Name="Ngay_Sinh" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ho_Ten" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Sinh" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gioi_Tinh" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Khoa_Hoc" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Association Name="Sinh_vien_Phieu_Nop" Member="Phieu_Nops" ThisKey="Ma_SV" OtherKey="Ma_SV" Type="Phieu_Nop" />
       <Association Name="Lop_Sinh_vien" Member="Lop" ThisKey="Ma_Lop" OtherKey="Ma_Lop" Type="Lop" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_DSNop" Member="V_DSNops">
+    <Type Name="V_DSNop">
+      <Column Name="Ma_So_Phieu" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_SV" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ho_Ten" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Sinh" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gioi_Tinh" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Khoa_Hoc" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Lop" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_Lop" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ma_Nganh" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_Nganh" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="So_Tien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Nap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_TongTienTheoLop" Member="V_TongTienTheoLops">
+    <Type Name="V_TongTienTheoLop">
+      <Column Name="Ma_Lop" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_TongTienTheoNganh" Member="V_TongTienTheoNganhs">
+    <Type Name="V_TongTienTheoNganh">
+      <Column Name="Ten_Nganh" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_TongTienTheoNgay" Member="V_TongTienTheoNgays">
+    <Type Name="V_TongTienTheoNgay">
+      <Column Name="Ngay_Nap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_TongTienTheoSinhVien" Member="V_TongTienTheoSinhViens">
+    <Type Name="V_TongTienTheoSinhVien">
+      <Column Name="Ma_SV" Type="System.String" DbType="Char(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Ho_Ten" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay_Sinh" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gioi_Tinh" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Khoa_Hoc" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_Lop" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten_Nganh" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Tong_Tien" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
