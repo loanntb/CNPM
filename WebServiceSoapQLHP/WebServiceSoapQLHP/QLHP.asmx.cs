@@ -58,7 +58,7 @@ namespace WebServiceSoapQLHP
                 p.ToString();
             return listDS;
         }
-        //Tra cứu thông tin danh sách học đã nạp học phí theo ngay nạp
+        //Tra cứu thông tin danh sách học đã nạp học phí theo ngày  nạp ???
         [WebMethod(Description = "Thông tin danh sách chi tiết sinh viên đã nạp học phí theo ngày tra cứu")]
         public List<V_DSNop> TraCuuDanhSachNapHocPhiTheoNgayNap(DateTime nhapNgayNap)
         {
@@ -76,7 +76,7 @@ namespace WebServiceSoapQLHP
                 p.ToString();
             return listDS;
         }
-        //Hiện thị thông tin danh sách học đã nạp học phí 
+        //Hiển thị thông tin danh sách học đã nạp học phí 
         [WebMethod(Description = "Thông tin danh sách học đã nạp học phí")]
         public List<V_DSNop> danhSachDaNapHocPhi()
         {
@@ -85,7 +85,7 @@ namespace WebServiceSoapQLHP
                 p.ToString();
             return listDS;
         }
-        //Thống kê số tiền nộp theo ngày
+        //Thống kê số tiền nộp theo ngày ???
         [WebMethod(Description = "Danh sách thống kê số tiền nộp  theo ngày")]
         public List<V_TongTienTheoNgay> TongTienHocPhiDaNapTheoNgay()
         {
@@ -175,7 +175,7 @@ namespace WebServiceSoapQLHP
                 return false;
             }
         }
-        //Thêm ngành học
+        //Thêm lớp học
         [WebMethod(Description = "Thêm Lớp")]
         public bool ThemLop(string Ten_Lop, string Ma_Nganh)
         {
@@ -356,11 +356,11 @@ namespace WebServiceSoapQLHP
         }
         //Xóa Phiếu Nạp Học Phí
         [WebMethod(Description = "Xóa Phiếu Nạp Học Phí")]
-        public bool XoaPhieuNapHocPhi(string Ma_So_Phieu)
+        public bool XoaPhieuNapHocPhi(string MaSoPhieu)
         {
             try
             {
-                Phieu_Nop pn = db.Phieu_Nops.Single(d => d.Ma_So_Phieu == Ma_So_Phieu);
+                Phieu_Nop pn = db.Phieu_Nops.Single(d => d.Ma_So_Phieu == MaSoPhieu);
                 db.Phieu_Nops.DeleteOnSubmit(pn);
                 db.SubmitChanges();
                 return true;
